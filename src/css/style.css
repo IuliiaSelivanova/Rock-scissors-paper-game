@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+.attribution { font-size: 11px; text-align: center; position: fixed; bottom: 0; left:calc(100vw / 2.5); color: white;}
+.attribution a { color: #c6c2ffd8; }
+
+/* Weights: 600, 700*/
+/*
+- Lizard Gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%)
+- Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%)
+ */
+:root{
+  --ff:'Barlow Semi Condensed', sans-serif;
+  --Scissors-Gradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
+  --Paper-Gradient: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
+  --Rock-Gradient: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
+  --DarkText: hsl(229, 25%, 31%);
+  --Score-Text: hsl(229, 64%, 46%);
+  --Header-Outline: hsl(217, 16%, 45%);
+}
+
+*, *::after, *::before{
+  box-sizing: border-box;
+}
+html{
+  background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: var(--ff);
+}
+
+/*header*/
+.container{
+  width: 51.5%;
+  margin: 2.3rem auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 4px solid;
+  border-color: var(--Header-Outline);
+  border-radius: 15px;
+}
+.game-name {
+  margin: 1.1rem 1.4rem;
+}
+.table {
+  background-color: white;
+  color: var(--Score-Text);
+  margin-top: 1rem;
+  margin-right: 1rem;
+  margin: 0.8rem 1.1rem;
+  border-radius: 8px;
+  width: 21.5%;
+}
+.score__title {
+  letter-spacing: 1px;
+  margin: 0.8rem 2.4rem 0 2.4rem;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+.score {
+  color: var(--Header-Outline);
+  font-size: 3.3rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/*Play field*/
+.playField{
+  width: 40%;
+  margin: 3.1rem auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.5rem 0;
+  justify-items: center;
+  align-items: center;
+}
+.playField.inactive{
+  display: none;
+}
+.circle{
+  border: 20px solid transparent;
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+  text-align: center;
+}
+.circle > img{
+  width: 40%;
+  margin: 2.3rem 0.5rem;
+}
+.item1 {
+  background: 
+    linear-gradient(white, white) padding-box,
+    linear-gradient(to bottom, #4865f4, #5671f5) border-box;
+}
+.item2 {
+  background: 
+    linear-gradient(white, white) padding-box,
+    linear-gradient(to bottom, hsl(39, 89%, 49%), hsl(40, 84%, 53%)) border-box;
+}
+.item3{
+  background: 
+    linear-gradient(white, white) padding-box,
+    linear-gradient(to bottom, hsl(349, 71%, 52%), hsl(349, 70%, 56%)) border-box;
+  grid-column: 1 / span 2;
+  grid-row: 2;
+}
+
+.link{
+  position: absolute;
+  z-index: -1;
+  }
+
+/*footer*/
+.rules > button {
+  text-transform: uppercase;
+  background-color: hsl(237, 49%, 15%);
+  font-family: var(--ff);
+  color: white;
+  border: 1px solid;
+  border-color: white;
+  border-radius: 10px;
+  padding: 0.5rem 2rem;
+  position: absolute;
+  bottom: 4rem;
+  right: 1.6rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.gameResult{
+  display: none;
+}
+/*Game starts*/
+.startsGame {
+  display: none;
+  width: 50%;
+  margin: 3.7rem auto;
+}
+.startsGame.active{
+  display: flex;
+  justify-content: space-between;
+}
+.playerTitle {
+  color: white;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.user .playerTitle{
+  margin-left: 3.9rem;
+}
+.user .playerChoice{
+  margin-top: 3.4rem; 
+  margin-left: 0.6rem;
+}
+.cpu .playerTitle{
+  text-align: center;
+  margin-right: 1.3rem;
+}
+.cpu .playerChoice{
+  margin-right: 1.2rem;
+  margin-top: 3.4rem; 
+}
+.playerChoice .circle {
+  width: 14rem;
+  height: 14rem;
+  border: 30px solid transparent;
+}
+
+.playerChoice .circle > img{
+  margin: 3rem 0.5rem;
+}
+
+.waitChoice{
+  background-color: rgba(0, 0, 0, .15);
+  width: 11rem;
+  height: 11rem;
+  border-radius: 50%;
+  margin: 5rem 1.6rem;
+}
+.waitChoice.inactive{
+  display: none;
+}
+/* .user .playerChoice{
+  margin-right: 1rem;
+}
+.cpu .playerChoice{
+  margin-right: 1rem;
+} */
+
+
+
+

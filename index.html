@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="src/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+  <link rel="stylesheet" href="src/css/reset.css">
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="src/css/modal.css">
+<script defer src="/src/js/script.js"></script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="game-name">
+        <img src="src/images/logo.svg" alt="Name of the game" class="logo">
+      </div>
+
+      <div class="table">
+        <p class="score__title">Score</p>
+        <p class="score" id="score">0</p> 
+      </div>
+    </div>
+  </header>
+
+  <section class="playField" id="playField">
+      <div class="circle item1" id="paper" data="0"><img src="src/images/icon-paper.svg" alt="paper"></div>
+      <div class="circle item2" id="scissors" data="1"><img src="src/images/icon-scissors.svg" alt="scissors"></div>
+      <div class=" circle item3" id="rock" data="2"><img src="src/images/icon-rock.svg" alt="stone"></div>
+        
+      <img src="src/images/bg-triangle.svg" alt="links" class="link">
+  </section>
+
+  <section class="startsGame" id="startsGame">
+    <div class="user">
+      <div class="playerTitle">You picked</div>
+      <div class="playerChoice" id="userChoice">
+      </div>
+    </div>
+
+    <div class="cpu">
+      <div class="playerTitle">The house picked</div>
+      <div class="playerChoice" id="cpuChoice">
+        <div class="waitChoice" id="waitChoice"></div>
+      </div>
+    </div>
+</section>
+
+<section class="gameResult">
+  <div class='gameResultWin'>
+    <div>You win</div>
+    <button>Play again</button>
+  </div>
+
+  <div class='gameResultLoss'>
+    <div>You win</div>
+    <button>Play again</button>
+  </div>
+  
+  <div class='gameResultDraw'>
+    <div>Draw</div>
+    <button>Play again</button>
+  </div>
+</section>
+
+  <div class="modal" id="modal">
+    <div class="main">
+      <div class="modal__title">
+        <h1>Rules</h1>
+        <img src="src/images/icon-close.svg" alt="close button" id="closeBtn">
+      </div>
+
+      <img src="src/images/image-rules.svg" alt="rules">
+    </div>
+  </div>
+  
+  <footer class="rules">
+    <button id="rules">Rules</button>
+  </footer>
+  
+  <div class="overlay js-overlay-modal"></div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Iuliia Selivanova</a>.
+      <!-- Добавить ссылку на свой гитхаб -->
+  </div>
+</body>
+</html> 
+

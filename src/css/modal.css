@@ -1,0 +1,61 @@
+/*Modal window with rules*/
+.modal{
+  background-color: #fff;
+  width: 29%;
+  box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 999;
+  top: 8.9rem;
+  left: 24.3rem;
+  border-radius: 10px;
+  height: 51vh;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .4s visibility .4s;
+}
+.modal.open{
+  visibility: visible;
+  opacity: 1;
+}
+.modal.open .main {
+  transform: scale(1);
+}
+.main{
+  transform: scale(0);
+  transition: transform .5s;
+}
+.main > img{
+  margin: 0.9rem 2.3rem;
+}
+.modal__title{
+  display: flex;
+  justify-content: space-between;
+  margin: 1.6rem 1.6rem;
+}
+.modal__title > h1{
+  color: var(--Header-Outline);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+.modal__title> img{
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.overlay {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 20;
+  transition: .3s all;
+}
+.overlay.active{
+  opacity: 1;
+  visibility: visible;
+}
