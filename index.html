@@ -22,15 +22,15 @@
 
       <div class="table">
         <p class="score__title">Score</p>
-        <p class="score" id="score">0</p> 
+        <p class="score" id="score"></p> 
       </div>
     </div>
   </header>
 
   <section class="playField" id="playField">
-      <div class="circle item1" id="paper" data="0"><img src="src/images/icon-paper.svg" alt="paper"></div>
-      <div class="circle item2" id="scissors" data="1"><img src="src/images/icon-scissors.svg" alt="scissors"></div>
-      <div class=" circle item3" id="rock" data="2"><img src="src/images/icon-rock.svg" alt="stone"></div>
+      <div class="circle item1" id="paper" data-index="0"><img src="src/images/icon-paper.svg" alt="paper"></div>
+      <div class="circle item2" id="scissors" data-index="1"><img src="src/images/icon-scissors.svg" alt="scissors"></div>
+      <div class=" circle item3" id="rock" data-index="2"><img src="src/images/icon-rock.svg" alt="stone"></div>
         
       <img src="src/images/bg-triangle.svg" alt="links" class="link">
   </section>
@@ -38,7 +38,7 @@
   <section class="startsGame" id="startsGame">
     <div class="user">
       <div class="playerTitle">You picked</div>
-      <div class="playerChoice" id="userChoice">
+      <div class="playerChoice" id="userChoice" data-index="">
       </div>
     </div>
 
@@ -51,20 +51,8 @@
 </section>
 
 <section class="gameResult">
-  <div class='gameResultWin'>
-    <div>You win</div>
-    <button>Play again</button>
-  </div>
-
-  <div class='gameResultLoss'>
-    <div>You win</div>
-    <button>Play again</button>
-  </div>
-  
-  <div class='gameResultDraw'>
-    <div>Draw</div>
-    <button>Play again</button>
-  </div>
+    <div class="result" id="result"></div>
+    <button class="btn-restart">Play again</button>
 </section>
 
   <div class="modal" id="modal">

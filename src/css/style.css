@@ -10,9 +10,9 @@
  */
 :root{
   --ff:'Barlow Semi Condensed', sans-serif;
-  --Scissors-Gradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
+  /* --Scissors-Gradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
   --Paper-Gradient: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
-  --Rock-Gradient: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
+  --Rock-Gradient: hsl(349, 71%, 52%), hsl(349, 70%, 56%); */
   --DarkText: hsl(229, 25%, 31%);
   --Score-Text: hsl(229, 64%, 46%);
   --Header-Outline: hsl(217, 16%, 45%);
@@ -84,6 +84,7 @@ html{
   width: 10rem;
   height: 10rem;
   text-align: center;
+  cursor: pointer;
 }
 .circle > img{
   width: 40%;
@@ -130,9 +131,6 @@ html{
   cursor: pointer;
 }
 
-.gameResult{
-  display: none;
-}
 /*Game starts*/
 .startsGame {
   display: none;
@@ -185,13 +183,41 @@ html{
 .waitChoice.inactive{
   display: none;
 }
-/* .user .playerChoice{
-  margin-right: 1rem;
+
+/*Вывод результата на экран*/
+.user.active {
+  margin-left: -7rem;
 }
-.cpu .playerChoice{
-  margin-right: 1rem;
-} */
-
-
-
-
+.cpu.active {
+  margin-right: -7rem;
+}
+.gameResult{
+  display: none;
+}
+.gameResult.active{
+  display: block;
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+.result{
+  color: white;
+  font-family: var(--ff);
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 8.9rem;
+  margin-bottom: 1.2rem;
+}
+.btn-restart{
+  background-color: white;
+  border: none;
+  color: hsl(349, 71%, 52%);
+  width: 11rem;
+  border-radius: 8px;
+  height: 2.5rem;
+  text-transform: uppercase;
+  font-family: var(--ff);
+  letter-spacing: 2px;
+}
