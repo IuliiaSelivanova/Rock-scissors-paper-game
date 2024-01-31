@@ -1,31 +1,3 @@
-/* Примитивная версия игры - без UI, без кнопки обновления и сохранения счета игроков. Игрок не выбирает, счет не сохраняется.
-
-const choices = ["камень", "бумагу", "ножницы"];
-let userChoice = Math.floor(Math.random() * 3);
-let computerChoice = Math.floor(Math.random() * 3);
-let scoreComputer = 0;
-let scoreUser = 0;
-alert(`Вы выбрали ${choices[userChoice]}`);
-alert(`Компьютер выбрал ${choices[computerChoice]}`);
-if (
-  (userChoice === 0 && computerChoice === 2) ||
-  (userChoice === 2 && computerChoice === 1) ||
-  (userChoice === 1 && computerChoice === 0)
-) {
-  scoreUser++;
-  alert(`You  win! \n User: ${scoreUser}  Computer: ${scoreComputer}`);
-} else if (
-  (userChoice === 2 && computerChoice === 0) ||
-  (userChoice === 1 && computerChoice === 2) ||
-  (userChoice === 0 && computerChoice === 1)
-) {
-  scoreComputer++;
-  alert(`You  lost! \n User: ${scoreUser}  Computer: ${scoreComputer}`);
-} else {
-  alert(`Ничья \n User: ${scoreUser}  Computer: ${scoreComputer}`);
-}*/
-
-
 /*Rules*/
 const rulesBtn = document.getElementById('rules'),
       closeBtn = document.getElementById('closeBtn'),
@@ -49,89 +21,121 @@ function closeRules(){
 /*Game*/
 const paper = document.getElementById('paper'),
       scissors = document.getElementById('scissors'),
-      rock = document.getElementById('rock'); //Подумать как создать объекты, чтобы они не были в одном экземпляре
+      rock = document.getElementById('rock');
       choices = [paper, scissors, rock];  
-      userChoice = document.getElementById('userChoice');
-      waitChoice = document.getElementById('waitChoice');
-      computerChoice = document.getElementById('cpuChoice');
+      // userChoice = document.getElementById('userChoice');
+      // waitChoice = document.getElementById('waitChoice');
+      // computerChoice = document.getElementById('cpuChoice');
+      blocked = false;
 
 //После выбора объекта заблокировать пользователю возможность снова нажимать на него, доступна только кнопки RULES и Play again. Затем объекты снова доступны для нажатия
 function paperChosen() {
   document.getElementById('playField').classList.add('inactive');
   document.getElementById('startsGame').classList.add('active');
-  userChoice.append(choices[0]);
-  userChoice.setAttribute('data-index', 0)
-  setTimeout(cpuChoice, 2000);
-  setTimeout(checkResult, 3000);
+
+  let playerChoice = document.createElement('div');
+  playerChoice.className = "playerChoice";
+  playerChoice.setAttribute('id', 'userChoice');
+  document.querySelector('.user').append(playerChoice);
+  playerChoice.append(choices[0].cloneNode(true));
+  playerChoice.setAttribute('data-index', 0);
+
+  cpuChoice();
 }
 
 function scissorsChosen() {
   document.getElementById('playField').classList.add('inactive');
   document.getElementById('startsGame').classList.add('active');
-  userChoice.append(choices[1]);
-  userChoice.setAttribute('data-index', 1)
-  setTimeout(cpuChoice, 2000);
-  setTimeout(checkResult, 3000);
+
+  let playerChoice = document.createElement('div');
+  playerChoice.className = "playerChoice";
+  playerChoice.setAttribute('id', 'userChoice');
+  document.querySelector('.user').append(playerChoice);
+  playerChoice.append(choices[1].cloneNode(true));
+  playerChoice.setAttribute('data-index', 1);
+
+  cpuChoice();
 }
 
 function rockChosen() {
   document.getElementById('playField').classList.add('inactive');
   document.getElementById('startsGame').classList.add('active');
-  userChoice.append(choices[2]);
-  userChoice.setAttribute('data-index', 2)
-  setTimeout(cpuChoice, 2000);
-  setTimeout(checkResult, 3000);
+
+  let playerChoice = document.createElement('div');
+  playerChoice.className = "playerChoice";
+  playerChoice.setAttribute('id', 'userChoice');
+  document.querySelector('.user').append(playerChoice);
+  playerChoice.append(choices[2].cloneNode(true));
+  playerChoice.setAttribute('data-index', 2);
+
+  cpuChoice();
 }
-//for each чтобы прослушать каждую кнопку и переключить поле, объединить одинаковые действия
 
 paper.addEventListener('click', paperChosen);
 scissors.addEventListener('click', scissorsChosen);
 rock.addEventListener('click', rockChosen);
 
-let indexCpu = Math.floor(Math.random() * 3);
-
+//ВЫбор компьютера:
+let indexCpu;
 function cpuChoice(){
-  waitChoice.classList.add('inactive');
-  //В случае когда выбирается то же что и юзера, отображения выбранного объекта переносится к cpu, пропадает у юзера. Как копировать обеъкты, а не перемещать по DOM?
-  computerChoice.append(choices[indexCpu]);
-  // console.log(userChoice.getAttribute('data-index'))
-  // console.log(indexCpu)
+  indexCpu = Math.floor(Math.random() * 3);
+  
+  let waiting = document.createElement('div');
+  waiting.className = "waitChoice";
+  document.querySelector('.cpu').append(waiting);
+  setTimeout(() => waiting.remove(), 1000);
+
+  let cpuChoice = document.createElement('div');
+  cpuChoice.className = "playerChoice";
+  cpuChoice.setAttribute('id', 'cpuChoice');
+  document.querySelector('.cpu').append(cpuChoice);
+  setTimeout(() => cpuChoice.append(choices[indexCpu].cloneNode(true)),1000);
+
+  setTimeout(checkResult, 1500);
 }
 
-
 //Проверка победителя, получение результата игры:
-let score = 0;      //Как сохранить результат. И продолжать игру с сохраненным результатом?
+let score = 0;
 const scoreCell = document.getElementById('score');
-let restartBtn = document.querySelector('.btn-restart');
 
 function checkResult(){
-  let indexUser = +userChoice.getAttribute('data-index');
+  let indexUser = +document.getElementById('userChoice').getAttribute('data-index');
   document.querySelector('.user').classList.add('active');
   document.querySelector('.cpu').classList.add('active');
   if( (indexUser === 0 && indexCpu === 2) || (indexUser === 2 && indexCpu === 1) || (indexUser === 1 && indexCpu === 0) ){
-    document.querySelector('.gameResult').classList.add('active');
     document.getElementById('result').innerHTML = 'You win';
+    document.querySelector('.gameResult').classList.add('active');
     score++;
-    scoreCell.append(score);
   } else if ((indexUser === 2 && indexCpu === 0) ||
   (indexUser === 1 && indexCpu === 2) ||
   (indexUser === 0 && indexCpu === 1)){
-    document.querySelector('.gameResult').classList.add('active');
     document.getElementById('result').innerHTML = 'You lose';
-    score--;
-    scoreCell.append(score);
-  } else {
     document.querySelector('.gameResult').classList.add('active');
+    score--;
+  } else {
     document.getElementById('result').innerHTML = 'Draw';
+    document.querySelector('.gameResult').classList.add('active');
     score;
-    scoreCell.append(score);
+  }
+
+  if (score >= 0){
+    scoreCell.innerHTML = score;
+  } else{
+    score = 0;
+    scoreCell.innerHTML = score;
   }
 }
 
 /*Начать сначала*/
+let restartBtn = document.querySelector('.btn-restart');
+
 restartBtn.addEventListener('click', restart);
 function restart(){
   document.getElementById('playField').classList.remove('inactive');
   document.getElementById('startsGame').classList.remove('active');
   document.querySelector('.gameResult').classList.remove('active');
+  document.querySelector('.user').classList.remove('active');
+  document.querySelector('.cpu').classList.remove('active');
+  document.getElementById('userChoice').remove();
+  document.getElementById('cpuChoice').remove();
 }

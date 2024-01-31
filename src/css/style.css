@@ -180,9 +180,6 @@ html{
   border-radius: 50%;
   margin: 5rem 1.6rem;
 }
-.waitChoice.inactive{
-  display: none;
-}
 
 /*Вывод результата на экран*/
 .user.active {
@@ -213,11 +210,15 @@ html{
 .btn-restart{
   background-color: white;
   border: none;
-  color: hsl(349, 71%, 52%);
+  color: hsl(214, 47%, 23%);
   width: 11rem;
   border-radius: 8px;
   height: 2.5rem;
   text-transform: uppercase;
   font-family: var(--ff);
   letter-spacing: 2px;
+}
+.btn-restart:hover{
+  color: hsl(349, 71%, 52%);
+  cursor: pointer;
 }
