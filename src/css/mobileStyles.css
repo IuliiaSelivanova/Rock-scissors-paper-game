@@ -1,0 +1,169 @@
+@media screen and (max-width: 500px) {
+  /*Header*/
+  .container {
+    width: 84%;
+    margin: 1.5rem auto;
+  }
+  .game-name {
+    margin: 1.1rem 1rem 0.7rem;
+  }
+  .game-name > img {
+    width: 53%;
+  }
+  .table {
+    margin: 0.5rem 0.6rem;
+    width: 25%;
+  }
+  .score__title {
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+  }
+  .score {
+    font-size: 1.9rem;
+  }
+  /*Play field*/
+  .playField {
+    width: 100%;
+    margin: 5rem 0;
+    gap: 1.5rem 0;
+  }
+  .circle {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+  .circle > img {
+    width: 50%;
+  }
+  .link {
+    width: 55%;
+    top: 14rem;
+  }
+  /*Footer*/
+  .rules > button {
+    position: fixed;
+    bottom: 2.2rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  /*Game starts*/
+  .startsGame.active {
+    width: 90%;
+    margin: 5rem auto;
+  }
+  .playerTitle {
+    font-size: 0.8rem;
+  }
+  .user.active,
+  .user {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+  .cpu.active,
+  .cpu {
+    margin-right: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+  .cpu .playerChoice {
+    margin: 0 0 0 1.5rem;
+  }
+  .playerChoice .circle {
+    width: 6.5rem;
+    height: 6.5rem;
+    border: 15px solid transparent;
+  }
+  .waitChoice {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+  /*Game result*/
+  .gameResult.active {
+    top: 60%;
+  }
+  .result {
+    margin-top: 5rem;
+  }
+}
+/* Modal */
+@media screen and (max-width: 550px) {
+  .modal {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    box-shadow: none;
+  }
+  .main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .main > img {
+    margin: 1rem auto;
+  }
+  .modal__title {
+    display: block;
+    text-align: center;
+    margin: 4.8rem 0;
+  }
+  .modal__title > h1 {
+    font-size: 1.5rem;
+  }
+  .modal__title > img {
+    position: fixed;
+    bottom: -5.6rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@media screen and (max-width: 950px) {
+  .container {
+    width: 66.5%;
+  }
+  .playField {
+    width: 60%;
+  }
+  .startsGame.active {
+    width: 65%;
+  }
+  .waitChoice {
+    width: 7rem;
+    height: 7rem;
+  }
+  .circle {
+    width: 8rem;
+    height: 8rem;
+  }
+  .link {
+    width: 35%;
+    top: 15rem;
+  }
+  .startsGame.active {
+    width: 60%;
+  }
+  .main > img {
+    width: 80%;
+  }
+  .result {
+    font-size: 2rem;
+  }
+  .btn-restart {
+    width: 8rem;
+  }
+  .playerChoice .circle {
+    width: 8rem;
+    height: 8rem;
+    border: 20px solid transparent;
+  }
+  .user.active {
+    margin-left: -3rem;
+  }
+  .cpu.active {
+    margin-right: -3rem;
+  }
+}

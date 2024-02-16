@@ -1,35 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+/* width: 1366px */
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
 
-.attribution { font-size: 11px; text-align: center; position: fixed; bottom: 0; left:calc(100vw / 2.5); color: white;}
-.attribution a { color: #c6c2ffd8; }
+.attribution {
+  font-size: 9px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: white;
+}
+.attribution a {
+  color: #c6c2ffd8;
+}
 
 /* Weights: 600, 700*/
-/*
-- Lizard Gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%)
-- Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%)
- */
-:root{
-  --ff:'Barlow Semi Condensed', sans-serif;
-  /* --Scissors-Gradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
-  --Paper-Gradient: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
-  --Rock-Gradient: hsl(349, 71%, 52%), hsl(349, 70%, 56%); */
+:root {
+  --ff: "Barlow Semi Condensed", sans-serif;
+
   --DarkText: hsl(229, 25%, 31%);
   --Score-Text: hsl(229, 64%, 46%);
   --Header-Outline: hsl(217, 16%, 45%);
 }
 
-*, *::after, *::before{
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
-html{
+html {
+  height: 100vh;
+}
+body {
   background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
   background-repeat: no-repeat;
-  min-height: 100vh;
   font-family: var(--ff);
 }
-
 /*header*/
-.container{
+.container {
   width: 51.5%;
   margin: 2.3rem auto;
   display: flex;
@@ -37,7 +45,7 @@ html{
   justify-content: space-between;
   border: 4px solid;
   border-color: var(--Header-Outline);
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .game-name {
   margin: 1.1rem 1.4rem;
@@ -45,15 +53,14 @@ html{
 .table {
   background-color: white;
   color: var(--Score-Text);
-  margin-top: 1rem;
-  margin-right: 1rem;
   margin: 0.8rem 1.1rem;
   border-radius: 8px;
   width: 21.5%;
 }
 .score__title {
+  text-align: center;
   letter-spacing: 1px;
-  margin: 0.8rem 2.4rem 0 2.4rem;
+  margin-top: 0.8rem;
   text-transform: uppercase;
   font-size: 0.9rem;
 }
@@ -65,7 +72,7 @@ html{
 }
 
 /*Play field*/
-.playField{
+.playField {
   width: 40%;
   margin: 3.1rem auto;
   display: grid;
@@ -75,44 +82,41 @@ html{
   justify-items: center;
   align-items: center;
 }
-.playField.inactive{
+.playField.inactive {
   display: none;
 }
-.circle{
+.circle {
   border: 20px solid transparent;
   border-radius: 50%;
   width: 10rem;
   height: 10rem;
-  text-align: center;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.circle > img{
+.circle > img {
   width: 40%;
-  margin: 2.3rem 0.5rem;
 }
 .item1 {
-  background: 
-    linear-gradient(white, white) padding-box,
+  background: linear-gradient(white, white) padding-box,
     linear-gradient(to bottom, #4865f4, #5671f5) border-box;
 }
 .item2 {
-  background: 
-    linear-gradient(white, white) padding-box,
+  background: linear-gradient(white, white) padding-box,
     linear-gradient(to bottom, hsl(39, 89%, 49%), hsl(40, 84%, 53%)) border-box;
 }
-.item3{
-  background: 
-    linear-gradient(white, white) padding-box,
-    linear-gradient(to bottom, hsl(349, 71%, 52%), hsl(349, 70%, 56%)) border-box;
+.item3 {
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to bottom, hsl(349, 71%, 52%), hsl(349, 70%, 56%))
+      border-box;
   grid-column: 1 / span 2;
   grid-row: 2;
 }
-
-.link{
+.link {
   position: absolute;
   z-index: -1;
-  }
-
+}
 /*footer*/
 .rules > button {
   text-transform: uppercase;
@@ -123,21 +127,20 @@ html{
   border-color: white;
   border-radius: 10px;
   padding: 0.5rem 2rem;
-  position: absolute;
-  bottom: 4rem;
+  position: fixed;
+  bottom: 1rem;
   right: 1.6rem;
   letter-spacing: 1px;
   font-weight: 600;
   cursor: pointer;
 }
-
 /*Game starts*/
 .startsGame {
   display: none;
+}
+.startsGame.active {
   width: 50%;
   margin: 3.7rem auto;
-}
-.startsGame.active{
   display: flex;
   justify-content: space-between;
 }
@@ -148,57 +151,50 @@ html{
   letter-spacing: 1px;
   font-weight: 600;
 }
-.user .playerTitle{
-  margin-left: 3.9rem;
-}
-.user .playerChoice{
-  margin-top: 3.4rem; 
-  margin-left: 0.6rem;
-}
-.cpu .playerTitle{
-  text-align: center;
-  margin-right: 1.3rem;
-}
-.cpu .playerChoice{
-  margin-right: 1.2rem;
-  margin-top: 3.4rem; 
+.cpu,
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
 }
 .playerChoice .circle {
   width: 14rem;
   height: 14rem;
   border: 30px solid transparent;
+  margin-top: 2rem;
 }
 
-.playerChoice .circle > img{
+.playerChoice .circle > img {
   margin: 3rem 0.5rem;
 }
 
-.waitChoice{
-  background-color: rgba(0, 0, 0, .15);
+.waitChoice {
+  background-color: rgba(0, 0, 0, 0.15);
   width: 11rem;
   height: 11rem;
   border-radius: 50%;
-  margin: 5rem 1.6rem;
+  margin-top: 3rem;
 }
-
-/*Вывод результата на экран*/
+/*Game result*/
 .user.active {
   margin-left: -7rem;
 }
 .cpu.active {
   margin-right: -7rem;
 }
-.gameResult{
+.gameResult {
   display: none;
 }
-.gameResult.active{
+.gameResult.active {
   display: block;
   position: fixed;
-  top:50%;
-  left:50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
-.result{
+.result {
   color: white;
   font-family: var(--ff);
   font-size: 2.8rem;
@@ -207,7 +203,7 @@ html{
   margin-top: 8.9rem;
   margin-bottom: 1.2rem;
 }
-.btn-restart{
+.btn-restart {
   background-color: white;
   border: none;
   color: hsl(214, 47%, 23%);
@@ -218,7 +214,36 @@ html{
   font-family: var(--ff);
   letter-spacing: 2px;
 }
-.btn-restart:hover{
+.btn-restart:hover {
   color: hsl(349, 71%, 52%);
   cursor: pointer;
+}
+@media screen and (max-width: 1150px) {
+  .playField {
+    width: 50%;
+  }
+  .startsGame.active {
+    width: 55%;
+  }
+  .main > img {
+    width: 80%;
+  }
+  .playerChoice .circle {
+    width: 12rem;
+    height: 12rem;
+    border: 25px solid transparent;
+  }
+  .waitChoice {
+    width: 9rem;
+    height: 9rem;
+  }
+}
+@media screen and (max-width: 1920px) {
+  .playField {
+    margin: 5rem auto;
+  }
+  .link {
+    width: 20%;
+    margin-top: 2rem;
+  }
 }

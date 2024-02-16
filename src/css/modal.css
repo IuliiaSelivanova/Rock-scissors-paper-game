@@ -1,43 +1,46 @@
 /*Modal window with rules*/
-.modal{
+.modal {
   background-color: #fff;
-  width: 29%;
+  width: 30%;
   box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.5);
-  position: absolute;
+  position: fixed;
   z-index: 999;
-  top: 8.9rem;
-  left: 24.3rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 10px;
-  height: 51vh;
+  height: 50%;
   visibility: hidden;
   opacity: 0;
-  transition: opacity .4s visibility .4s;
+  transition: opacity 0.4s visibility 0.4s;
 }
-.modal.open{
+.modal.open {
   visibility: visible;
   opacity: 1;
 }
 .modal.open .main {
   transform: scale(1);
 }
-.main{
+.main {
   transform: scale(0);
-  transition: transform .5s;
+  transition: transform 0.5s;
 }
-.main > img{
-  margin: 0.9rem 2.3rem;
+.main > img {
+  display: block;
+  margin: 2rem auto;
 }
-.modal__title{
+.modal__title {
   display: flex;
   justify-content: space-between;
-  margin: 1.6rem 1.6rem;
+  margin: 1.6rem;
 }
-.modal__title > h1{
+.modal__title > h1 {
   color: var(--Header-Outline);
   text-transform: uppercase;
   font-size: 1.5rem;
+  font-weight: 900;
 }
-.modal__title> img{
+.modal__title > img {
   width: 1rem;
   height: 1rem;
   cursor: pointer;
@@ -51,11 +54,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 20;
-  transition: .3s all;
+  transition: 0.3s all;
 }
-.overlay.active{
+.overlay.active {
   opacity: 1;
   visibility: visible;
 }

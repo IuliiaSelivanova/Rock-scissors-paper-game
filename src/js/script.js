@@ -83,15 +83,15 @@ function cpuChoice(){
   let waiting = document.createElement('div');
   waiting.className = "waitChoice";
   document.querySelector('.cpu').append(waiting);
-  setTimeout(() => waiting.remove(), 1000);
+  setTimeout(() => waiting.remove(), 1500);
 
   let cpuChoice = document.createElement('div');
   cpuChoice.className = "playerChoice";
   cpuChoice.setAttribute('id', 'cpuChoice');
   document.querySelector('.cpu').append(cpuChoice);
-  setTimeout(() => cpuChoice.append(choices[indexCpu].cloneNode(true)),1000);
+  setTimeout(() => cpuChoice.append(choices[indexCpu].cloneNode(true)),1500);
 
-  setTimeout(checkResult, 1500);
+  setTimeout(checkResult, 2500);
 }
 
 //Проверка победителя, получение результата игры:

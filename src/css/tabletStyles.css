@@ -1,0 +1,61 @@
+@media screen and (max-width: 768px) {
+  /* Header */
+  .game-name > img {
+    width: 75%;
+  }
+  .link {
+    width: 45%;
+    top: 16rem;
+  }
+  .table {
+    margin: 0.5rem 0.6rem;
+    width: 25%;
+  }
+  .score {
+    font-size: 2.8rem;
+  }
+  /*Play field*/
+  .playField {
+    width: 80%;
+    margin: 5rem auto;
+  }
+  /*Game starts*/
+  .startsGame.active {
+    width: 70%;
+    margin: 4rem auto;
+  }
+  .playerTitle {
+    font-size: 1rem;
+  }
+  .user.active,
+  .user {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+  .playerChoice .circle {
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+  .cpu.active,
+  .cpu {
+    margin-right: 0;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .waitChoice {
+    margin-top: 0;
+    margin-bottom: 3rem;
+  }
+  /*Game result*/
+  .user.active {
+    margin-left: 0;
+  }
+  .cpu.active {
+    margin-right: 0;
+  }
+  .gameResult.active {
+    top: 65%;
+  }
+}
